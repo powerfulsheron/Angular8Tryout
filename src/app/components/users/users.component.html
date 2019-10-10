@@ -18,6 +18,5 @@
         <span class="badge">{{user.id}}</span> {{user.name}}
   </li>
 </ul>
-<div *ngIf="selectedUser">
-    <h2>{{selectedUser.name | uppercase}}</h2>
-</div>
+
+<app-user-detail [selectedUser]="selectedUser"></app-user-detail>
