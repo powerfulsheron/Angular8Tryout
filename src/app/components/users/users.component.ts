@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './user';
-// import user mocks constant
-import { USERS } from './mock-user'
+
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-users',
@@ -10,9 +10,9 @@ import { USERS } from './mock-user'
 })
 export class UsersComponent implements OnInit {
 
-  users = USERS;
+  users: User[];
 
-  user : User = {
+  user: User = {
     id: 1,
     name: 'Lorenzo'
   };
@@ -23,9 +23,16 @@ export class UsersComponent implements OnInit {
     this.selectedUser = user;
   }
 
-  constructor() { }
+  constructor(private userService: UserService) {
+
+  }
 
   ngOnInit() {
+    this.getUsers();
+  }
+
+  getUsers(): void { // Le getter recoit maintenant un observable car le traitement est asynch
+    this.userService.getUsers().subscribe(users => this.users = users); // Genre de promise ~ une fois que users est loadé on assigne
   }
 
 }

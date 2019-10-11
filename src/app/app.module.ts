@@ -3,14 +3,16 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { UsersComponent } from './users/users.component';
-import { UserDetailComponent } from './user-detail/user-detail.component';
+import { UsersComponent } from './components/users/users.component';
+import { UserDetailComponent } from './details/users/user-detail/user-detail.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
